@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ToDo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+
+<div class="container">
+		<div th:fragment="header">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<!-- Brand/logo -->
+				<a class="navbar-brand" href="#">
+				</a>
+				<!-- Links -->				
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/}">Home</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/students/list"
+						th:href="@{/students/list}">Students</a></li>					
+					<li class="nav-item "><a class="nav-link" href="/modules/list"
+						th:href="@{/modules/list}">Modules </a></li>						
+					<li class="nav-item"><a class="nav-link" href="/todo/list"
+						th:href="@{/todo/list}">To Do </a></li>
+				</ul>
+		</nav>
+		</div>
+    <div class="container my-2">
+        <div class="card">
+            <div class="card-body">
+                <div th:switch="${todo}" class="container my-5">
+                    <p class="my-5">
+                        <a href="/todo/showForm" class="btn btn-primary"><i
+       class="fas fa-user-plus ml-2"> Add ToDo</i></a>
+                    </p>
+                    <div class="col-md-10">
+                        <h2 th:case="null">Nothing to do yet!</h2>
+                        <div th:case="*">
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Element</th>
+                                        <th>Deadline</th>
+                                        <th>Statut</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="todo : ${todo}">
+                                        <td th:text="${todo.name}"></td>
+                                        <td th:text="${todo.element}"></td>
+                                        <td th:text="${todo.deadline}"></td>
+                                        <td th:text="${todo.statut}"></td>
+                                        <td><a th:href="@{/todo/edit/{id}(id=${todo.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                        <td><a th:href="@{/todo/delete/{id}(id=${todo.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+
+<div class="container">
+		<div th:fragment="header">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<!-- Brand/logo -->
+				<a class="navbar-brand" href="#">
+				</a>
+				<!-- Links -->				
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/}">Home</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/students/list"
+						th:href="@{/students/list}">Students</a></li>					
+					<li class="nav-item "><a class="nav-link" href="/modules/list"
+						th:href="@{/modules/list}">Modules </a></li>						
+					<li class="nav-item"><a class="nav-link" href="/todo/list"
+						th:href="@{/todo/list}">To Do </a></li>
+				</ul>
+		</nav>
+		</div>
+    <div class="jumbotron text-center">
+			<div style="margin: 0, auto">
+				<div class="" style="margin: 0, auto">
+					<h3 th:inline="text" style="text-align: center; color: green">Bonjour & Welcome
+						[[${#httpServletRequest.remoteUser}]]</h3>
+					<h3 class="display-4">CRUD SpringBoot Project</h3>
+				</div>
+			</div>
+			<p>In this CRUD project , we will be able to add students to our database , add modules and their elements , and also add tha assignments that need to be done soon
+			. Of course , it would be possible to edit on the data , or even delete it 
+			As you wish 😀 ! 🍃 ! 😉 . </p>
+			</div>
+</body>
+
+</html>

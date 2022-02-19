@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+    <div class="container my-5">
+        <h3> Add module</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/modules/add}" th:object="${module}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="specialite" class="col-form-label">Specialite</label> <input type="text" th:field="*{specialite}" class="form-control" id="specialite" placeholder="Specialite"> <span th:if="${#fields.hasErrors('specialite')}" th:errors="*{specialite}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="element1" class="col-form-label">Element1</label> <input type="text" th:field="*{element1}" class="form-control" id="element1" placeholder="Element1"> <span th:if="${#fields.hasErrors('element1')}" th:errors="*{element1}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="element2" class="col-form-label">Element2</label> <input type="text" th:field="*{element2}" class="form-control" id="element2" placeholder="Element2"> <span th:if="${#fields.hasErrors('element2')}" th:errors="*{element2}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="element3" class="col-form-label">Element3</label> <input type="text" th:field="*{element3}" class="form-control" id="element3" placeholder="Element3"> <span th:if="${#fields.hasErrors('element3')}" th:errors="*{element3}" class="text-danger"></span>
+                            </div>
+
+                            
+
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Add Module">
+                            </div>
+
+                            <div class="form-group col-md-8"></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
